@@ -1,6 +1,7 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- 侧边栏 -->
     <sidebar class="sidebar-container" />
     <div class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
@@ -79,6 +80,7 @@ export default {
     top: 0;
     right: 0;
     z-index: 9;
+    
     width: calc(100% - #{$sideBarWidth});
     transition: width 0.28s;
   }

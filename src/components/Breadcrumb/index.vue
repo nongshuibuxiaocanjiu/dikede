@@ -1,12 +1,16 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group name="breadcrumb">
+  <!-- Logo -->
+  <img src="../../assets/logo.3673fab5.png" alt="" class="img">
+  
+    <!-- <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
         <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
-    </transition-group>
+    </transition-group> -->
   </el-breadcrumb>
+  <!--  -->
 </template>
 
 <script>
@@ -64,15 +68,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 50px;
-  margin-left: 8px;
-
-  .no-redirect {
-    color: #97a8be;
-    cursor: text;
-  }
+.app-breadcrumb {
+.img{
+  height: 36px;
+  width: 88px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 }
 </style>

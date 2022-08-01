@@ -1,24 +1,19 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function loginFromFn(data) {
   return request({
-    url: '/vue-admin-template/user/login',
-    method: 'post',
+    url: '/user-service/user/login',
+    method: 'POST',
     data
   })
 }
-
-export function getInfo(token) {
+/**
+ *
+ * @param { } data 验证码
+ * @returns Promise
+ */
+export function photo(clientToken) {
   return request({
-    url: '/vue-admin-template/user/info',
-    method: 'get',
-    params: { token }
-  })
-}
-
-export function logout() {
-  return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
+    url: `/user-service/user/imageCode/${clientToken}`
   })
 }
