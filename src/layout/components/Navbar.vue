@@ -8,9 +8,9 @@
 
     <!-- 退出 -->
     <div class="right-menu">
-        <span><img src="../../assets/下载.png" class="user-avatar"  style="margin-top:10px"/></span>
+        <span><img :src="$store.state.user.UserInfo.image" class="user-avatar"  style="margin-top:10px"/></span>
         <span>欢迎</span>
-        <span>admin</span>
+        <span>{{$store.state.user.UserInfo.userName}}</span>
 
       
 
@@ -38,22 +38,36 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import { getUserInfo } from '@/api/user'
+
+
 
 export default {
   components: {
     Breadcrumb,
     Hamburger
   },
+  created() {
+    this.getUserInfo()
+    console.log(this.$store.state.user.UserInfo.userName);
+    // this.$store.dispatch('user/getUserInfo')
+  },
   computed: {
     ...mapGetters(['sidebar', 'avatar'])
   },
   methods: {
+    
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+   async getUserInfo() {
+     const res =  await getUserInfo(this.$store.state.user.code)
+     console.log(res);
+     this.$store.dispatch('user/getUserInfo', res.data)
     }
   }
 }

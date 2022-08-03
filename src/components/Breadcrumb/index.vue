@@ -1,7 +1,7 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
   <!-- Logo -->
-  <img src="../../assets/logo.3673fab5.png" alt="" class="img">
+  <!-- <img src="../../assets/logo.3673fab5.png" alt="" class="img"> -->
   
     <!-- <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">

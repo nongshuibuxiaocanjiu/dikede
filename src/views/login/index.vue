@@ -198,9 +198,12 @@ export default {
       this.loading = true
       // await this.$refs.loginForm.validate()
       const res = await loginFromFn(this.loginForm)
-       console.log(res.data);
+
       const token = res.data.token
+      const code = res.data.userId
       this.getToken(token)
+      this.getCode(code)
+      
       this.loading = false
       if (this.$store.state.user.token) {
         this.$router.push('/')
@@ -210,7 +213,7 @@ export default {
         })
       }
     },
-    ...mapActions(['getToken'])
+    ...mapActions(['getToken','getCode'])
   }
 }
 </script>
