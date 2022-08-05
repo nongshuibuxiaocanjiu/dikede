@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+// 不要加api！不要加api！不要加api！
 /**
  *  账号登录
  * @param {*} data ，loginName，password，clientToken，code
@@ -13,7 +14,7 @@ export function loginFromFn(data) {
 }
 /**
  *验证码
- * @param {token } clientToken
+ * @param { } clientToken
  * @returns Promise
  */
 export function photo(clientToken) {
@@ -30,5 +31,16 @@ export function photo(clientToken) {
 export function getUserInfo(id) {
   return request({
     url: `/user-service/user/${id}`
+  })
+}
+
+/**
+ * 工单搜索
+ * @param {*} id
+ * @returns Promise
+ */
+export function getgdList() {
+  return request({
+    url: '/task-service/task/search'
   })
 }

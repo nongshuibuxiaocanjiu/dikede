@@ -1,11 +1,12 @@
-// import { getUserInfo } from '@/api/user'
+
 
 export default {
   namespaced: true,
   state: {
     token: '',
     code: '',
-    UserInfo:{}
+    UserInfo: {},
+    ggyyList: {}
   },
   mutations: {
     setToken(state, payload) {
@@ -16,7 +17,8 @@ export default {
     },
     setgetUserInfo(state, payload) {
       state.UserInfo = payload
-    }
+    },
+
   },
   actions: {
     getToken(context, payload) {
@@ -27,7 +29,14 @@ export default {
       context.commit('setCode', payload)
     },
     getUserInfo(context, payload) {
+      //获取用户信息
       context.commit('setgetUserInfo', payload)
-    }
+    },
+    logout(context) {
+      // 退出清空
+      context.commit('setgetUserInfo', {})
+      context.commit('setToken', '')
+    },
+
   }
 }

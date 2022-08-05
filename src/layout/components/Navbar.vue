@@ -49,7 +49,7 @@ export default {
   },
   created() {
     this.getUserInfo()
-    console.log(this.$store.state.user.UserInfo.userName);
+    // console.log(this.$store.state.user.UserInfo.userName);
     // this.$store.dispatch('user/getUserInfo')
   },
   computed: {
@@ -66,7 +66,7 @@ export default {
     },
    async getUserInfo() {
      const res =  await getUserInfo(this.$store.state.user.code)
-     console.log(res);
+    //  console.log(res);
      this.$store.dispatch('user/getUserInfo', res.data)
     }
   }

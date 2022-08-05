@@ -1,6 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" /> -->
     <!-- 侧边栏 -->
     <sidebar class="sidebar-container" />
     <div class="main-container">
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+      // this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
 }
@@ -81,7 +81,7 @@ export default {
     right: 0;
     z-index: 9;
     
-    width: calc(100% - #{$sideBarWidth});
+    // width: calc(100% - #{$sideBarWidth});
     transition: width 0.28s;
   }
 
